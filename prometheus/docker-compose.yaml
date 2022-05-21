@@ -58,7 +58,7 @@ services:
     networks:
       - monitoring
   cadvisor:
-    image: gcr.io/cadvisor/cadvisor:latest
+    image: klo2k/cadvisor:latest
     container_name: cadvisor
     expose:
       - 8080
