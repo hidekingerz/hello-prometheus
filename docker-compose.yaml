@@ -47,8 +47,12 @@ services:
       - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
     network_mode: host
   cadvisor:
-    image: klo2k/cadvisor:latest
+    image: braingamer/cadvisor-arm:latest
     container_name: cadvisor
+    privileged: true
+    restart: unless-stopped
+    devices:
+      - /dev/kmsg
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
