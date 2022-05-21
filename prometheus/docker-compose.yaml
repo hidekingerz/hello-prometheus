@@ -43,3 +43,14 @@ services:
       - 9090:9090
     networks:
       - monitoring
+
+  grafana:
+    image: grafana/grafana-oss
+    container_name: grafana
+    restart: unless-stopped
+    environment:
+      - "GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource"
+    ports:
+      - 3000:3000
+    networks:
+      - monitoring
